@@ -7,13 +7,18 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 app.post('/weather', function (req, res) {
  
   var city = req.body.queryResult.parameters.City;
   var codigoCiudad = 0;
   var urlCodigoCiudad = 'http://dataservice.accuweather.com/locations/v1/cities/IN/search?apikey=HUvky50Dmh5P90r5Vhr7HfGxUiuKnHtD&q=' + city;
   console.log('Weather query for ' + city);
+
+
+  app.get("/", (err, res) => {
+    res.send("Hello World !");  
+  })
+})
 
   var resWeather = {
     fulfillmentText: ''
